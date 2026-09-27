@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="google" content="notranslate">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>વિદ્યાર્થી</title>
+<title>Student</title>
 <link rel="manifest" href="manifest.json">
 <link rel="icon" href="icon.svg">
 <meta name="theme-color" content="#0b1220">
-<!-- AI FLN GURU · © 2026 Manthan School · All rights reserved.
+<!-- © 2026 · All rights reserved.
      This page is only a loader. The app is licensed per school and delivered by the
-     AI FLN GURU server after registration. Copying or redistributing is not permitted. -->
+     server after registration. Copying or redistributing is not permitted. -->
 <style>
   :root{--bg:#070b14;--card:#0f172a;--line:#26324a;--ink:#e5e7eb;--dim:#94a3b8;--green:#22c55e;--violet:#a78bfa;--blue:#60a5fa}
   *{box-sizing:border-box}
@@ -23,6 +23,8 @@
   .big{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
   .choice{background:#0b1220;border:2px solid var(--c,#334155);border-radius:16px;padding:20px 14px;color:var(--ink);cursor:pointer;text-align:center;font:inherit}
   .choice .i{font-size:40px}.choice b{display:block;font-size:19px;margin-top:6px}.choice small{color:var(--dim);display:block;margin-top:4px;line-height:1.45}
+  .choice em{display:block;font-style:normal;color:#93c5fd;font-size:13px;margin-top:2px}
+  .choice small i{display:block;font-style:normal;color:#7dd3fc;font-size:12px;margin-top:2px}
   label{display:block;color:var(--dim);font-size:14px;margin:10px 0 4px}
   input,select{width:100%;padding:12px 14px;border-radius:12px;border:1px solid #334155;background:#0b1220;color:var(--ink);font:inherit;font-size:17px}
   .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
@@ -38,11 +40,11 @@
 </head>
 <body oncontextmenu="return false">
 <script src="config.js"></script>
-<div class="wrap" id="app"><div class="logo"><div class="e">🎓</div><h1 id="appName">&nbsp;</h1><p>વિદ્યાર્થી ફાઇલ · Student</p></div><div class="spin"></div></div>
+<div class="wrap" id="app"><div class="logo"><div class="e">🎓</div><h1 id="appName">&nbsp;</h1><p>વિદ્યાર્થી · Student</p></div><div class="spin"></div></div>
 <script>
 /* ==========================================================================
-   AI FLN GURU — LOADER (student)
-   The real app is NOT in this file. After login the AI FLN GURU master server
+   LOADER (student)
+   The real app is NOT in this file. After login the master server
    sends it; it is kept on this device and fetched again only when it changes.
    ========================================================================== */
 var MASTER_URL=window.FG_MASTER_URL||'';  /* 👑 comes from config.js — the ONLY place the link is written */
@@ -77,12 +79,12 @@ var ERR={'network':'ઇન્ટરનેટ નથી — જોડાણ ત�
   'fill-all':'બધી વિગત ભરો','password-4':'પાસવર્ડ ઓછામાં ઓછા 4 અક્ષરનો','registration-closed':'નવી નોંધણી હાલ બંધ છે',
   'not-found':'આ ધોરણ અને રોલ નંબરનો વિદ્યાર્થી મળ્યો નહીં — નવી નોંધણી કરો','roll-taken':'આ ધોરણમાં આ રોલ નંબર પહેલેથી નોંધાયેલો છે — "રોલ નંબરથી પ્રવેશ" વાપરો',
   'self-registration-closed':'જાતે નોંધણી હાલ બંધ છે — શિક્ષકને કહો','fill-class-roll-name':'ધોરણ, રોલ નંબર અને નામ ભરો',
-  'uid-needed':'અનોખો ID (UID) જરૂરી — 4 થી 24 અક્ષર/આંકડા','uid-exists':'આ UID પહેલેથી નોંધાયેલો છે — "રોલ નંબરથી પ્રવેશ" વાપરો',
-  'uid-other-school':'આ UID બીજી શાળામાં નોંધાયેલો છે — નવી શાળાના શિક્ષકને કહો (👥 → 🔄)',
+  'uid-needed':'PEN / APAAR ID જરૂરી','uid-exists':'આ PEN / APAAR ID પહેલેથી નોંધાયેલો છે — "મારી પ્રોફાઇલ શોધો" વાપરો',
+  'uid-other-school':'આ PEN / APAAR ID બીજી શાળામાં નોંધાયેલો છે — નવી શાળાના શિક્ષકને કહો',
   'bad-token':'ફરી પ્રવેશ કરો','no-code-file':'સર્વર પર એપ હજી મૂકી નથી (BOARD CODE FILE ID)'};
 function em(d){ return ERR[d&&d.error]||(d&&d.error)||'ભૂલ' }
-function APP(){ return (CFG&&CFG.appName)||'AI FLN ગુરુ' }       /* 👑 name comes from the master sheet */
-function screen(html){ document.title=APP()+' · વિદ્યાર્થી ફાઇલ · Student'; $('app').innerHTML='<div class="logo"><div class="e">🎓</div><h1>'+esc(APP())+'</h1><p>વિદ્યાર્થી ફાઇલ · Student</p></div>'+html }
+function APP(){ return (CFG&&CFG.appName)||'' }       /* 👑 name comes ONLY from the master sheet */
+function screen(html){ document.title=APP()+' · વિદ્યાર્થી · Student'; $('app').innerHTML='<div class="logo"><div class="e">🎓</div><h1>'+esc(APP())+'</h1><p>વિદ્યાર્થી · Student</p></div>'+html }
 function loading(t){ screen('<div class="spin"></div><p class="note">'+esc(t||'ખૂલે છે…')+'</p>') }
 
 /* ================================ START ================================ */
@@ -90,7 +92,20 @@ var CFG=jget(CKEY,null);
 try{ $('appName').textContent=APP() }catch(e){}
 function start(){
   var s=jget(SKEY,null);
-  loading('જોડાય છે…');
+  if(s && CFG && !start.__bg){                 /* ⚡ fast path: open the saved copy at once, check the server in the background */
+    start.__bg=1;
+    return cacheGet(function(c){
+      if(!(c && c.code)) { start.__bg=2; return start() }
+      jp('boot',{udise:s.udise,tok:s.tok,sid:s.sid},function(b){
+        if(!(b && b.ok)) return;
+        jset(CKEY,b);
+        if((ROLE==='board' && b.teacher===false) || (b.school && b.school.status==='BLOCKED')){ jset(SKEY,null) }   /* next open asks again */
+        if(b.codeVersion && b.codeVersion!==c.v) fetchCode(s,function(){});   /* new version ready for the next open */
+      });
+      run(c.code,s);
+    });
+  }
+  loading('જોડાય છે… · Connecting…');
   jp('boot', s?{udise:s.udise, tok:s.tok, sid:s.sid}:{}, function(b){
     if(b && b.ok){ CFG=b; jset(CKEY,b) }
     else if(!CFG){ screen('<div class="card"><b>⚠ '+esc(em(b))+'</b><button class="btn" onclick="start()">↻ ફરી</button></div>'); return }
@@ -110,14 +125,16 @@ function msg(t){ screen('<div class="card"><b>'+esc(t)+'</b></div>') }
 /* ============================ TEACHER: SCHOOL ============================ */
 function schoolScreen(note){
   screen('<div class="card">'+(note?'<div class="msg">'+esc(note)+'</div>':'')+
-    '<div class="big"><button class="choice" style="--c:#22c55e" onclick="schoolLogin()"><div class="i">🏫</div><b>શાળામાં પ્રવેશ</b><small>શાળા નોંધાયેલી છે — UDISE અને પાસવર્ડ</small></button>'+
-    (CFG&&CFG.schoolReg===false?'':'<button class="choice" style="--c:#60a5fa" onclick="schoolRegister()"><div class="i">📝</div><b>નવી શાળા નોંધણી</b><small>પહેલી વાર — UDISE, શાળાનું નામ, તાલુકો, જિલ્લો</small></button>')+
+    '<div class="big"><button class="choice" style="--c:#22c55e" onclick="schoolLogin()"><div class="i">🏫</div><b>શાળામાં પ્રવેશ</b><em>School login</em>'+
+      '<small>શાળા નોંધાયેલી છે — UDISE અને પાસવર્ડ<i>Already registered — UDISE code and password</i></small></button>'+
+    (CFG&&CFG.schoolReg===false?'':'<button class="choice" style="--c:#60a5fa" onclick="schoolRegister()"><div class="i">📝</div><b>નવી શાળા નોંધણી</b><em>Register a new school</em>'+
+      '<small>પહેલી વાર — UDISE, શાળા, તાલુકો, જિલ્લો<i>First time — UDISE, school, taluka, district</i></small></button>')+
     '</div></div><p class="note">© '+esc(APP())+' — દરેક શાળા માટે અલગ લાઇસન્સ. વિગત ફક્ત તમારી શાળા માટે વપરાય છે.</p>');
 }
 function schoolLogin(){
-  screen('<div class="card"><b>🏫 શાળામાં પ્રવેશ</b><label>UDISE કોડ (11 અંક)</label><input id="u" inputmode="numeric" maxlength="11">'+
-    '<label>શાળાનો પાસવર્ડ</label><input id="pw" type="password"><div class="msg" id="m"></div>'+
-    '<button class="btn" id="go">▶ પ્રવેશ</button><button class="btn ghost" onclick="schoolScreen()">← પાછા</button></div>');
+  screen('<div class="card"><b>🏫 શાળામાં પ્રવેશ · School login</b><label>UDISE કોડ (11 અંક) · UDISE code</label><input id="u" inputmode="numeric" maxlength="11">'+
+    '<label>શાળાનો પાસવર્ડ · School password</label><input id="pw" type="password"><div class="msg" id="m"></div>'+
+    '<button class="btn" id="go">▶ પ્રવેશ · Login</button><button class="btn ghost" onclick="schoolScreen()">← પાછા · Back</button></div>');
   $('go').onclick=function(){ $('m').textContent='';
     loadingBtn(this); jp('loginSchool',{udise:$('u').value.trim(),password:$('pw').value},function(d){
       if(!d.ok){ $('m').textContent='⚠ '+em(d); resetBtn('go','▶ પ્રવેશ'); return }
@@ -143,49 +160,51 @@ function schoolRegister(){
 /* ============================ STUDENT FILE ============================ */
 function studentScreen(){
   screen('<div class="card"><div class="big">'+
-    '<button class="choice" style="--c:#22c55e" onclick="stuLogin()"><div class="i">🎓</div><b>રોલ નંબરથી પ્રવેશ</b><small>શાળાનો UDISE, ધોરણ અને રોલ નંબર</small></button>'+
-    (CFG&&CFG.selfReg===false?'':'<button class="choice" style="--c:#60a5fa" onclick="stuRegister()"><div class="i">📝</div><b>નવી નોંધણી</b><small>મારું નામ શાળાની યાદીમાં નથી</small></button>')+
-    (CFG&&CFG.visitor===false?'':'<button class="choice" style="--c:#a78bfa" onclick="stuVisitor()"><div class="i">🙋</div><b>મુલાકાતી તરીકે પ્રવેશ</b><small>ફક્ત નામ — બધું ચાલે</small></button>')+
+    '<button class="choice" style="--c:#22c55e" onclick="stuLogin()"><div class="i">🎓</div><b>મારી પ્રોફાઇલ શોધો</b><em>Find my profile</em>'+
+      '<small>શિક્ષકે તમારી નોંધણી કરી હોય તો<i>If your teacher has already registered you</i></small></button>'+
+    (CFG&&CFG.selfReg===false?'':'<button class="choice" style="--c:#60a5fa" onclick="stuRegister()"><div class="i">📝</div><b>જાતે નોંધણી કરો</b><em>Register myself</em>'+
+      '<small>તમારી શાળા આ બોર્ડ ન વાપરતી હોય તો — જાતે નોંધણી કરી શીખવાનું શરૂ કરો<i>If your school does not use this board — register yourself and start learning</i></small></button>')+
+    (CFG&&CFG.visitor===false?'':'<button class="choice" style="--c:#a78bfa" onclick="stuVisitor()"><div class="i">🙋</div><b>મુલાકાતી</b><em>Visitor</em>'+
+      '<small>ફક્ત નામ લખી જુઓ<i>Just type your name and explore</i></small></button>')+
     '</div></div>'+(CFG&&CFG.message?'<div class="card">📢 '+esc(CFG.message)+'</div>':'')+
     '<p class="note">© '+esc(APP())+'</p>');
 }
-function udiseRow(){ return '<label>શાળાનો UDISE કોડ (11 અંક — શિક્ષક પાસેથી)</label><input id="u" inputmode="numeric" maxlength="11" value="'+esc((jget('fg_last_udise','')||''))+'">'+
+function udiseRow(){ return '<label>શાળાનો UDISE કોડ (11 અંક) · School UDISE code</label><input id="u" inputmode="numeric" maxlength="11" value="'+esc((jget('fg_last_udise','')||''))+'">'+
   '<div id="sn" class="note" style="text-align:left;margin-top:4px"></div>' }
 function watchUdise(){ var box=$('u'); function chk(){ var v=box.value.replace(/\D/g,''); $('sn').textContent='';
     if(v.length===11) jp('schoolInfo',{udise:v},function(d){ $('sn').innerHTML=d.ok?('🏫 <b>'+esc(d.school.name)+'</b> · '+esc(d.school.taluka)+', '+esc(d.school.district)):'ℹ️ આ શાળા હજી નોંધાયેલી નથી — તો પણ તમે નવી નોંધણી કરી શકો' }) }
   box.oninput=chk; chk() }
 function clsSel(){ var o=''; for(var c=1;c<=8;c++) o+='<option value="'+c+'"'+(c===7?' selected':'')+'>ધોરણ '+c+'</option>'; return '<select id="c">'+o+'</select>' }
 function stuLogin(){
-  screen('<div class="card"><b>🎓 રોલ નંબરથી પ્રવેશ</b>'+udiseRow()+'<div class="row"><div><label>ધોરણ</label>'+clsSel()+'</div><div><label>રોલ નંબર</label><input id="r" inputmode="numeric"></div></div>'+
-    '<div class="msg" id="m"></div><div id="who"></div><button class="btn" id="go">🔍 શોધો</button><button class="btn ghost" onclick="studentScreen()">← પાછા</button></div>');
+  screen('<div class="card"><b>🎓 મારી પ્રોફાઇલ શોધો · Find my profile</b>'+udiseRow()+'<div class="row"><div><label>ધોરણ · Class</label>'+clsSel()+'</div><div><label>રોલ નંબર · Roll no</label><input id="r" inputmode="numeric"></div></div>'+
+    '<div class="msg" id="m"></div><div id="who"></div><button class="btn" id="go">🔍 શોધો · Find</button><button class="btn ghost" onclick="studentScreen()">← પાછા · Back</button></div>');
   watchUdise();
   $('go').onclick=function(){ var u=$('u').value.replace(/\D/g,''), c=$('c').value, r=$('r').value.trim(); $('m').textContent='';
     loadingBtn(this); jp('findStudent',{udise:u,cls:c,roll:r},function(d){ resetBtn('go','🔍 શોધો');
       if(!d.ok){ $('m').textContent='⚠ '+em(d); return }
       var s=d.student; jset('fg_last_udise',u);
       $('who').innerHTML='<div class="who"><span style="font-size:32px">👦</span><div><b style="font-size:19px">'+esc(s.name)+'</b><br><small>'+esc(s.school||'')+' · ધોરણ '+esc(s.cls)+' · રોલ '+esc(s.roll)+'</small></div></div>';
-      $('go').textContent='✅ હા, આ હું છું'; $('go').onclick=function(){ jset(SKEY,{udise:s.udise,cls:s.cls,roll:s.roll,name:s.name,sid:s.id,school:s.school}); start() } }) };
+      $('go').textContent='✅ હા, આ હું છું · Yes, this is me'; $('go').onclick=function(){ jset(SKEY,{udise:s.udise,cls:s.cls,roll:s.roll,name:s.name,sid:s.id,school:s.school}); start() } }) };
 }
 function stuRegister(){
-  screen('<div class="card"><b>📝 નવી નોંધણી</b>'+udiseRow()+'<label>શાળાનું નામ (શાળા નોંધાયેલી ન હોય તો)</label><input id="sc">'+
-    '<div class="row"><div><label>ધોરણ</label>'+clsSel()+'</div><div><label>રોલ નંબર</label><input id="r" inputmode="numeric"></div></div>'+
-    '<label>તમારું પૂરું નામ</label><input id="n">'+
-    '<label>તમારો અનોખો ID (UID) * — Child UID / APAAR ID (શાળા પાસેથી)</label><input id="id" style="font-family:monospace;letter-spacing:1px">'+
-    '<label>GR નંબર (ખબર હોય તો)</label><input id="g">'+
-    '<div class="msg" id="m"></div><button class="btn" id="go">✅ નોંધણી કરો</button><button class="btn ghost" onclick="studentScreen()">← પાછા</button></div>');
+  screen('<div class="card"><b>📝 જાતે નોંધણી · Register myself</b>'+udiseRow()+'<label>શાળાનું નામ · School name</label><input id="sc">'+
+    '<div class="row"><div><label>ધોરણ · Class</label>'+clsSel()+'</div><div><label>રોલ નંબર · Roll no</label><input id="r" inputmode="numeric"></div></div>'+
+    '<label>તમારું પૂરું નામ · Full name</label><input id="n">'+
+    '<label>વિદ્યાર્થીનો સરકારી અનોખો નંબર (PEN / APAAR ID) · Student PEN / APAAR ID</label><input id="id" style="font-family:monospace;letter-spacing:1px">'+
+    '<div class="msg" id="m"></div><button class="btn" id="go">✅ નોંધણી કરો · Register</button><button class="btn ghost" onclick="studentScreen()">← પાછા · Back</button></div>');
   watchUdise();
   $('go').onclick=function(){ var v=function(i){ return $(i).value.trim() }; $('m').textContent='';
-    if(v('id').replace(/\s/g,'').length<4){ $('m').textContent='⚠ અનોખો ID (UID) લખો'; return }
-    loadingBtn(this); jp('selfRegister',{udise:v('u').replace(/\D/g,''),school:v('sc'),cls:$('c').value,roll:v('r'),name:v('n'),gr:v('g'),uid:v('id')},function(d){
+    if(v('id').replace(/\s/g,'').length<4){ $('m').textContent='⚠ PEN / APAAR ID લખો'; return }
+    loadingBtn(this); jp('selfRegister',{udise:v('u').replace(/\D/g,''),school:v('sc'),cls:$('c').value,roll:v('r'),name:v('n'),uid:v('id')},function(d){
       if(!d.ok){ $('m').textContent='⚠ '+em(d); resetBtn('go','✅ નોંધણી કરો'); return }
       var s=d.student; jset('fg_last_udise',s.udise);
-      jset(SKEY,{udise:s.udise,cls:s.cls,roll:s.roll,name:s.name,sid:s.id,school:s.school});
+      jset(SKEY,{udise:s.udise,cls:s.cls,roll:s.roll,name:s.name,sid:s.id,school:s.school,indep:!!d.independent});
       screen('<div class="card"><b class="ok">✅ નોંધણી થઈ ગઈ</b><p>'+esc(s.name)+' · ધોરણ '+esc(s.cls)+' · રોલ '+esc(s.roll)+'<br>'+
         'શાળા બદલો ત્યારે નવી શાળામાં તમારાં બધાં પરિણામ તમારા UID <b>'+esc(s.id)+'</b> થી આવશે.</p><button class="btn" onclick="start()">▶ ખોલો</button></div>') }) };
 }
 function stuVisitor(){
-  screen('<div class="card"><b>🙋 મુલાકાતી તરીકે પ્રવેશ</b><label>તમારું નામ</label><input id="n" maxlength="40"><div class="msg" id="m"></div>'+
-    '<button class="btn" id="go">▶ આગળ વધો</button><button class="btn ghost" onclick="studentScreen()">← પાછા</button></div>');
+  screen('<div class="card"><b>🙋 મુલાકાતી · Visitor</b><label>તમારું નામ · Your name</label><input id="n" maxlength="40"><div class="msg" id="m"></div>'+
+    '<button class="btn" id="go">▶ આગળ વધો · Continue</button><button class="btn ghost" onclick="studentScreen()">← પાછા · Back</button></div>');
   $('go').onclick=function(){ var n=$('n').value.trim(); if(n.length<2){ $('m').textContent='⚠ નામ લખો'; return }
     jset(SKEY,{udise:'VISITOR',cls:'7',roll:'G'+String(Date.now()).slice(-6),name:n,guest:true}); start() };
 }
@@ -199,11 +218,28 @@ function load(s){
     var want=CFG&&CFG.codeVersion;
     if(c && c.code && (!want || c.v===want)) return run(c.code,s);
     loading(c?'નવું વર્ઝન આવે છે…':'પહેલી વાર એપ આવે છે (1–2 મિનિટ)…');
-    jp('code',{role:ROLE,udise:s.udise,tok:s.tok},function(d){
-      if(!d.ok){ if(c&&c.code) return run(c.code,s); return msg('⚠ '+em(d)) }
-      cachePut({v:d.version,code:d.code}); run(d.code,s);
-    },180000);
+    fetchCode(s,function(code,err){
+      if(code) return run(code,s);
+      if(c&&c.code) return run(c.code,s);
+      msg('⚠ '+em(err));
+    });
   });
+}
+/* the app arrives compressed (≈4× smaller) where the browser can unpack it */
+function fetchCode(s,cb){
+  var gz=('DecompressionStream' in window)?'1':'';
+  jp('code',{role:ROLE,udise:s.udise,tok:s.tok,gz:gz},function(d){
+    if(!d.ok) return cb(null,d);
+    if(d.gz){
+      try{
+        var bin=atob(d.gz), u=new Uint8Array(bin.length); for(var i=0;i<bin.length;i++) u[i]=bin.charCodeAt(i);
+        new Response(new Blob([u]).stream().pipeThrough(new DecompressionStream('gzip'))).text().then(function(code){
+          cachePut({v:d.version,code:code}); cb(code) },function(){ cb(null,{error:'unpack'}) });
+      }catch(e){ cb(null,{error:'unpack'}) }
+      return;
+    }
+    cachePut({v:d.version,code:d.code}); cb(d.code);
+  },180000);
 }
 window.__FG_LOGOUT=function(){ jset(SKEY,null); try{ localStorage.removeItem('vrd_home_stu') }catch(e){} location.reload() };
 function run(code,s){
@@ -212,14 +248,14 @@ function run(code,s){
     window.__SCHOOL={udise:s.udise,tok:s.tok,name:s.name};
   } else {
     window.STUDENT_MODE=true;
-    jset('vrd_home_stu',{cls:String(s.cls),roll:String(s.roll),gr:'',name:s.name,udise:s.udise,sid:s.sid||'',guest:!!s.guest,school:s.school||''});
+    jset('vrd_home_stu',{cls:String(s.cls),roll:String(s.roll),gr:'',name:s.name,udise:s.udise,sid:s.sid||'',guest:!!s.guest,school:s.school||'',indep:!!s.indep||!!(CFG&&CFG.student&&!CFG.school)});
     jset('vrd_class',String(s.cls));
   }
   var mark=(ROLE==='board'?'🏫 '+(s.name||'')+' · UDISE '+s.udise:(s.guest?'🙋 '+s.name:'👦 '+s.name+' · '+(s.school||s.udise)));
   document.open(); document.write(code); document.close();
   setTimeout(function(){ try{
     var w=document.createElement('div');
-    w.textContent=APP()+' · '+mark;
+    w.textContent=(APP()?APP()+' · ':'')+mark;
     w.style.cssText='position:fixed;left:8px;bottom:6px;z-index:2147483000;font:11px sans-serif;color:rgba(255,255,255,.35);pointer-events:none;letter-spacing:.3px';
     document.body.appendChild(w);
     document.addEventListener('contextmenu',function(e){ e.preventDefault() },true);
