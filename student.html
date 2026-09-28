@@ -36,7 +36,7 @@
   @keyframes sp{to{transform:rotate(360deg)}}
   .note{color:var(--dim);font-size:13px;text-align:center;margin-top:18px;line-height:1.6}
   .terms{margin-top:12px}.tc{display:flex;gap:8px;align-items:flex-start;color:var(--ink);font-size:14px}.tc input{width:auto;margin-top:3px}.tc a{color:#93c5fd}
-  .tbody{margin-top:8px;padding:12px;border-radius:12px;background:#0b1220;border:1px solid #334155;font-size:13.5px;line-height:1.7;color:#cbd5e1}.tbody i{color:#94a3b8}
+  .tbody{margin-top:8px;padding:14px;border-radius:12px;background:#0b1220;border:1px solid #334155;font-size:13.5px;line-height:1.75;color:#cbd5e1;max-height:55vh;overflow:auto;text-align:left}.tbody i{color:#94a3b8;font-style:normal;display:block;margin-top:2px}.tbody h4{margin:0 0 8px;color:#fbbf24;font-size:16px}.tbody h5{margin:14px 0 4px;color:#93c5fd;font-size:14.5px}.tbody p{margin:0 0 6px}
   .who{display:flex;gap:10px;align-items:center;background:#0b1220;border:1px solid #1f3a2a;border-radius:12px;padding:12px;margin-top:10px}
 </style>
 </head>
@@ -140,19 +140,53 @@ function schoolScreen(note){
       '<small>ભણાવવા માટે બધું ચાલે — વિદ્યાર્થી યાદી અને રિપોર્ટ માટે નોંધણી જોઈએ<i>Teaching works fully — student list and reports need registration</i></small></button>'+
     '</div></div><p class="note">© '+esc(APP())+' — દરેક શાળા માટે અલગ લાઇસન્સ. વિગત ફક્ત તમારી શાળા માટે વપરાય છે.</p>');
 }
+function T_(gu,en){ return '<p>'+gu+'<br><i>'+en+'</i></p>' }
+function TH_(n,gu,en){ return '<h5>'+n+'. '+gu+' · '+en+'</h5>' }
+var TERMS_COMMON=
+ TH_(1,'આ સેવા વિશે','About this service')+
+ T_('આ એક <b>ખાનગી શૈક્ષણિક સેવા</b> છે. તે ભારત સરકાર, ગુજરાત સરકાર, શિક્ષણ વિભાગ, સમગ્ર શિક્ષા કે કોઈ પણ સરકારી સંસ્થાની વેબસાઇટ, એપ કે યોજના <b>નથી</b>, અને તેમાંથી કોઈ સાથે સત્તાવાર રીતે જોડાયેલી નથી. UDISE કોડ, વિદ્યાર્થી UID અથવા APAAR ID ફક્ત ઓળખ માટે પૂછવામાં આવે છે.',
+    'This is a <b>private educational service</b>. It is <b>not</b> a website, app or scheme of the Government of India, the Government of Gujarat, the Education Department, Samagra Shiksha or any other public body, and it is not officially connected with any of them. UDISE codes, student UIDs and APAAR IDs are requested only for identification.')+
+ TH_(2,'કોણ વાપરી શકે','Who may use it')+
+ T_('શાળા, શિક્ષકો, વિદ્યાર્થીઓ અને વાલીઓ આ સેવા શીખવા-શીખવવા માટે વાપરી શકે છે. <b>18 વર્ષથી નાની ઉંમરના વિદ્યાર્થી</b> આ સેવા માત્ર વાલી (માતા-પિતા કે કાયદેસર સંરક્ષક) ની જાણ અને સંમતિથી જ વાપરે. શાળા દ્વારા ઉમેરાયેલા વિદ્યાર્થીઓ માટે વાલીની સંમતિ મેળવવાની જવાબદારી શાળાની રહેશે.',
+    'Schools, teachers, students and parents may use the service for teaching and learning. <b>Students under 18</b> may use it only with the knowledge and consent of a parent or lawful guardian. For students added by a school, the school is responsible for obtaining that consent.')+
+ TH_(3,'અમે કઈ માહિતી રાખીએ છીએ','What information we keep')+
+ T_('શાળાનું નામ, UDISE કોડ, તાલુકો, જિલ્લો, શિક્ષકનું નામ, મોબાઇલ અને ઇમેઇલ; વિદ્યાર્થીનું નામ, ધોરણ, રોલ નંબર, GR નંબર (હોય તો), UID / APAAR ID, માધ્યમ; તથા મહાવરા અને કસોટીનાં પરિણામ, ભૂલો, વાંચનની ઝડપ અને પ્રગતિ. મુલાકાતી માટે નામ અને યુઝરનેમ. અમે પાસવર્ડ ખુલ્લો રાખતા નથી — તેનું ગુપ્ત (hash) રૂપ જ સાચવીએ છીએ.',
+    'School name, UDISE code, taluka, district, teacher name, mobile and email; student name, class, roll number, GR number (if given), UID / APAAR ID and medium; and practice and test results, mistakes, reading speed and progress. For visitors, a name and username. Passwords are never stored in plain text — only a secure hash.')+
+ TH_(4,'માહિતીનો ઉપયોગ','How the information is used')+
+ T_('આ માહિતીનો ઉપયોગ સેવા ચલાવવા, વિદ્યાર્થીને યોગ્ય મોડ્યુલ બતાવવા, AI ટ્યુટર દ્વારા નબળા મુદ્દા શોધીને શીખવવા, શિક્ષક અને વિદ્યાર્થીને રિપોર્ટ બતાવવા, શાળા બદલાય ત્યારે વિદ્યાર્થીનો અભ્યાસ-ઇતિહાસ સાથે લઈ જવા, તથા સેવાની ગુણવત્તા સુધારવા માટે થાય છે. સામૂહિક અને નામ વગરના (anonymised) આંકડા સંશોધન અને સુધારણા માટે વાપરી શકાય છે.',
+    'The information is used to run the service, show each student the right modules, let the AI tutor find weak areas and teach them, show reports to teachers and students, carry a student\'s learning history to a new school, and improve the quality of the service. Aggregated, anonymised statistics may be used for research and improvement.')+
+ TH_(5,'માહિતી ક્યાં સચવાય છે અને કોણ જોઈ શકે','Where it is stored and who can see it')+
+ T_('માહિતી સેવા-સંચાલકના Google એકાઉન્ટમાં Google Sheets / Google Drive પર સચવાય છે. શાળાની માહિતી તે શાળાના પાસવર્ડ વડે જ ખૂલે છે. સેવા-સંચાલક સેવા ચલાવવા, મદદ કરવા અને ભૂલ સુધારવા માટે માહિતી જોઈ શકે છે. અમે યોગ્ય સાવચેતી રાખીએ છીએ, પરંતુ ઇન્ટરનેટ પર કોઈ પણ વ્યવસ્થા સંપૂર્ણ સુરક્ષિત હોવાની ખાતરી આપી શકાતી નથી.',
+    'Data is stored in Google Sheets / Google Drive under the service operator\'s Google account. A school\'s data opens only with that school\'s password. The operator can see data to run the service, give support and fix problems. We take reasonable care, but no system on the internet can be guaranteed to be completely secure.')+
+ TH_(6,'માહિતી આપવી','Sharing')+
+ T_('સેવા ચલાવવા જરૂરી સેવા-પ્રદાતાઓ (જેમ કે Google) સિવાય, અને કાયદા મુજબ ફરજિયાત હોય ત્યારે સિવાય, વ્યક્તિગત માહિતી બીજા કોઈને આપવામાં આવશે નહીં. ભવિષ્યમાં સેવા કે તેનો વ્યવસાય બીજી સંસ્થાને સોંપાય તો માહિતી આ જ શરતો સાથે નવી સંસ્થાને સોંપાઈ શકે; તે પહેલાં વપરાશકર્તાઓને જાણ કરવામાં આવશે.',
+    'Personal data is not given to anyone except the service providers needed to run the service (such as Google) and where the law requires it. If the service or its business is transferred to another organisation in future, the data may be transferred under these same terms; users will be informed before that happens.')+
+ TH_(7,'ફી','Fees')+
+ T_('આજે મોટા ભાગની સુવિધા મફત છે. ભવિષ્યમાં અમુક કે બધી સુવિધા (જેમ કે AI વ્યક્તિગત ટ્યુટર) માટે ફી લેવાઈ શકે. ફી શરૂ થાય તે પહેલાં જાણ કરવામાં આવશે; ફી ન ભરવી હોય તો તમે સેવા વાપરવાનું બંધ કરી શકો.',
+    'Most features are free today. Some or all features (such as the AI personal tutor) may become paid in future. You will be told before any fee starts; if you do not wish to pay, you may stop using the service.')+
+ TH_(8,'તમારી જવાબદારી','Your responsibilities')+
+ T_('સાચી માહિતી આપો, પાસવર્ડ ગુપ્ત રાખો, બીજા કોઈની ઓળખ વાપરશો નહીં, અને સેવાનો કોડ, સામગ્રી કે ડિઝાઇન નકલ કરવા, વેચવા કે બીજે મૂકવાનો પ્રયત્ન કરશો નહીં. સેવાની સામગ્રી અને સોફ્ટવેર તેના માલિકની મિલકત છે.',
+    'Give correct information, keep your password secret, do not use anyone else\'s identity, and do not copy, sell or republish the service\'s code, content or design. The content and software of the service remain the property of its owner.')+
+ TH_(9,'તમારા અધિકાર','Your rights')+
+ T_('તમે તમારી માહિતી જોવા, સુધારવા અથવા કાઢી નાખવા વિનંતી કરી શકો છો. શાળા તેના વિદ્યાર્થીની માહિતી બોર્ડમાંથી સુધારી શકે છે. કાયદાકીય રીતે રાખવી જરૂરી ન હોય એવી માહિતી વિનંતી મુજબ કાઢી નાખવામાં આવશે.',
+    'You may ask to see, correct or delete your information. A school can correct its students\' details from the board. Information not required to be kept by law will be deleted on request.')+
+ TH_(10,'સેવામાં ફેરફાર અને મર્યાદા','Changes and limits')+
+ T_('સેવા "જેમ છે તેમ" આપવામાં આવે છે. તે હંમેશા ચાલુ રહેશે કે ભૂલ વગરની રહેશે એવી ખાતરી નથી. સુવિધા, સામગ્રી અને આ શરતોમાં સમયાંતરે ફેરફાર થઈ શકે; મોટા ફેરફારની જાણ કરવામાં આવશે. નિયમ ભંગ થાય તો કોઈ ખાતું કે શાળાનું જોડાણ બંધ કરી શકાય.',
+    'The service is provided "as is", without a guarantee that it will always be available or error-free. Features, content and these terms may change from time to time; important changes will be announced. An account or a school\'s access may be suspended if these terms are broken.')+
+ TH_(11,'કાયદો','Law')+
+ T_('આ શરતો ભારતના કાયદા, ખાસ કરીને ડિજિટલ પર્સનલ ડેટા પ્રોટેક્શન કાયદો 2023, હેઠળ છે. કોઈ વિવાદ માટે ગુજરાતની અદાલતોનું અધિકારક્ષેત્ર રહેશે.',
+    'These terms are governed by the laws of India, including the Digital Personal Data Protection Act, 2023. Courts in Gujarat shall have jurisdiction over any dispute.');
 var TERMS_DEF={
- school:'<b>આ સરકારી વેબસાઇટ નથી · This is NOT a government website.</b><br>'+
-  '• આ ખાનગી શૈક્ષણિક સેવા છે. શાળા, શિક્ષક અને વિદ્યાર્થીની જે વિગત તમે આપો છો તે શીખવવા, પરિણામ બતાવવા અને સેવા સુધારવા માટે સાચવવામાં અને વાપરવામાં આવશે.<br>'+
-  '<i>This is a private education service. The school, teacher and student details you enter are stored and used to run the service, show results and improve it.</i><br>'+
-  '• આજે આ સેવા મફત છે; ભવિષ્યમાં અમુક સુવિધા (જેમ કે AI ટ્યુટર) પેઇડ થઈ શકે. <i>It is free today; some features may become paid in future.</i><br>'+
-  '• વિદ્યાર્થીની વિગત ઉમેરતાં પહેલાં વાલી / શાળાની સંમતિ લેવાની જવાબદારી શાળાની છે. <i>The school is responsible for getting parent / school consent before adding student details.</i><br>'+
-  '• તમે માંગો ત્યારે તમારી શાળાની વિગત કાઢી નાખવા વિનંતી કરી શકો. <i>You may ask for your school\'s data to be deleted at any time.</i>',
- student:'<b>આ સરકારી વેબસાઇટ નથી · This is NOT a government website.</b><br>'+
-  '• તમારું નામ, ધોરણ, ID અને કસોટીનાં પરિણામ શીખવવા અને તમારો રિપોર્ટ બનાવવા સાચવાય છે. <i>Your name, class, ID and test results are stored to teach you and make your report.</i><br>'+
-  '• 18 વર્ષથી નાના હો તો આ નોંધણી વાલીની સંમતિથી કરો. <i>If you are under 18, register with your parent\'s permission.</i><br>'+
-  '• આજે મફત; ભવિષ્યમાં અમુક સુવિધા પેઇડ થઈ શકે. <i>Free today; some features may become paid in future.</i><br>'+
-  '• તમે માંગો ત્યારે તમારી વિગત કાઢી નાખવા વિનંતી કરી શકો. <i>You may ask for your data to be deleted at any time.</i>'
+ school:'<h4>શાળા માટે નિયમો અને શરતો · Terms and Conditions for Schools</h4>'+TERMS_COMMON+
+   TH_(12,'શાળાની સંમતિ','School\'s agreement')+
+   T_('"સ્વીકારું છું" પસંદ કરીને તમે જાહેર કરો છો કે તમે શાળા વતી આ સેવા વાપરવા અધિકૃત છો, વિદ્યાર્થીઓની માહિતી ઉમેરતાં પહેલાં વાલીઓની સંમતિ મેળવશો, અને ઉપરના બધા નિયમો સ્વીકારો છો.',
+      'By choosing "I accept" you confirm that you are authorised to use this service on behalf of the school, that you will obtain parents\' consent before adding students\' details, and that you accept all the terms above.'),
+ student:'<h4>વિદ્યાર્થી અને મુલાકાતી માટે નિયમો અને શરતો · Terms and Conditions for Students and Visitors</h4>'+TERMS_COMMON+
+   TH_(12,'તમારી સંમતિ','Your agreement')+
+   T_('"સ્વીકારું છું" પસંદ કરીને તમે જાહેર કરો છો કે તમે આ શરતો વાંચી છે; તમારી ઉંમર 18 વર્ષથી ઓછી હોય તો તમારા વાલીએ પણ આ શરતો વાંચીને સંમતિ આપી છે.',
+      'By choosing "I accept" you confirm that you have read these terms and, if you are under 18, that your parent or guardian has also read them and agrees.')
 };
+
 function termsBox(kind){
   var txt=(CFG&&(kind==='school'?CFG.termsSchool:CFG.termsStudent))||TERMS_DEF[kind];
   return '<div class="terms"><label class="tc"><input type="checkbox" id="agree"> <span>મેં <a href="#" id="tLink">શરતો</a> વાંચી છે અને સ્વીકારું છું · I have read and accept the <a href="#" id="tLink2">terms</a></span></label>'+
